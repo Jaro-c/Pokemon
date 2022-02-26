@@ -1,0 +1,216 @@
+/* PLANTILLA BASE */
+body{
+    font-family: 'Inter', sans-serif;
+}
+
+.menu{
+    background-color: #E3350D;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav-enlace{
+    display: inline-block;
+    padding: 10px 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-enlace:hover{
+    background-color: black;
+    color: white;
+}
+
+@media (max-width:600px){
+    .menu{
+        background-color: #E3350D;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-enlace{
+        display: inline-block;
+        padding: 10px 30px;
+        color: white;
+        text-decoration: none;
+    }
+    .nav-enlace:hover{
+        background-color: black;
+        color: white;
+    }   
+}
+
+section{
+    text-align: center;
+    margin-top: 75px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+footer{
+    background-color: #1F1F1F;
+    left: 0;
+    bottom: 0px;
+    margin-top: 10px;
+    padding: 5px 0px;
+    width: 100%;
+    text-align: center;
+}
+
+footer li{
+    display: inline-block;
+    text-decoration: none;
+    color: #857e7e;
+    font-size: 14px;
+    padding: 0px 15px ;
+}
+
+.footer-titulo{
+    color: white;
+    font-weight: bold;
+}
+
+.footer-texto{
+    color: white;
+    font-size: 12px;
+}
+
+/* PLANTILLA PARA POKEDEX */
+
+.pokedex{
+    display: flex;
+    justify-content: center;
+}
+.pokedex-izquierdo {
+    border-radius: 25px 0px 0px 25px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+    background: #DC0A2D;
+    padding: 20px;
+    width: 200px;
+    height: 300px;
+}
+
+.pokedex-izquierdo-imagen{
+    background-color: #1B1B1B;
+    border:20px solid #C8D1E5;
+    border-radius: 0px 0px 0px 25px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.pokedex-izquierdo h2{
+    color: white;
+}
+
+.pokedex-derecho {
+    border-radius: 0px 25px 25px 0px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+    background: #DC0A2D;
+    padding: 20px;
+    width: 200px;
+    height: 250px;
+    margin-top: 50px;
+}
+
+.pokedex-derecho-stats{
+    background-color: #90D36B;
+    border-radius: 5px 5px 5px 5px;
+    border:2px solid #C3B76B;
+    color: #000800;
+    list-style: none;
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+.pokedex-derecho-stats p{
+    text-align: left;
+    font-size: 14px;
+    margin: 0;
+}
+
+.pokemon-derecho-input-id{
+    width: 70px;
+    height: 25px;
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.pokedex-derecho-button{
+    background-color: #519AFB;
+    height: 30px;
+    width: 70px;
+    color: white;
+    font-weight: bold;
+}
+
+/* PLANTILLA BATALLA */
+.batalla{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px ;
+}
+.batalla-izquierdo {
+    border-radius: 25px 0px 0px 25px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+    background: #598FA3;
+    padding: 20px;
+    width: 200px;
+    height: 300px;
+}
+
+.batalla-izquierdo-imagen{
+    background-color: #1B1B1B;
+    border:20px solid #C8D1E5;
+    border-radius: 0px 0px 0px 25px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.batalla-izquierdo h2{
+    color: white;
+}
+
+.batalla-derecho {
+    border-radius: 0px 25px 25px 0px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+    background: #598FA3;
+    padding: 20px;
+    width: 200px;
+    height: 300px;
+}
+
+.batalla-derecho-imagen{
+    background-color: #1B1B1B;
+    border:20px solid #C8D1E5;
+    border-radius: 0px 0px 0px 25px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.batalla-derecho h2{
+    color: white;
+}
+
+.batalla-centro {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+    background: white;
+    padding: 20px;
+    width: 50px;
+    height: 300px;
+}
+
+.batalla-centro-imagen{
+    margin-top: 75px;
+}
+
+.batalla-desarrollo{
+    width: 600px;
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
+}
+

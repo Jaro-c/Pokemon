@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Batalla {% endblock %}
+
+{% block contenido %} 
+
+{% if not user.is_authenticated %}
+    <p>Debe <b>registrarse e ingresar</b> para poder realizar una batalla Pokemon</p>
+{% else %}
+    {% if not seleccionados %}
+        <p>Debe ingresar el numero del pokemon 1 y 2, y luego dar clic en <b>Batalla Pokemon</b></p>
+        <form action="/batalla/" method="post">
+            {% csrf_token %}
+                <label for="pokemon1">Pokemon 1</label>
+                <input type="number" class="batalla-p1" name="pokemon1" min="1" max="150">
+                <label for="pokemon2">Pokemon 2</label>
+                <input type="number" class="batalla-p2" name="pokemon2" min="1" max="150">
+                <input type="submit" value="Batalla Pokemon" class="batalla-boton">
+                <br>
+            {% if errores.errorID %}
+                <p>{{errores.errorID}}</p>
+            {% endif %}
+        </form>
+    {% endif %}
+{% endif %}
+
+<div class="batalla">
+    <div class="batalla-izquierdo">
+        {% if user.is_authenticated %}
+            {% if pokemon1.sprites %}
+                <img class="batalla-izquierdo-imagen" src="{{pokemon1.sprites}}" width="150">
+                <h2>{{pokemon1.name}}</h2>
+                <h3>{{pokemon1.attack}}</h3>
+            {% else %}
+                <img class="batalla-izquierdo-imagen" src="https://i.imgur.com/Qwck7sJ.png" width="150">
+                <h2>Buscar pokemon</h2>
+            {% endif %}
+        {% else %}
+            <img class="batalla-izquierdo-imagen" src="https://i.imgur.com/Qwck7sJ.png" width="150">
+            <h2>Buscar pokemon</h2>
+        {% endif %}
+    </div>
+    <div class="batalla-centro">
+        <img class="batalla-centro-imagen" src="https://cdn-icons-png.flaticon.com/512/4144/4144549.png" width="50">
+    </div>
+    <div class="batalla-derecho">
+        {% if user.is_authenticated %}
+            {% if pokemon1.sprites %}
+                <img class="batalla-derecho-imagen" src="{{pokemon2.sprites}}" width="150">
+                <h2>{{pokemon2.name}}</h2>
+                <h3>{{pokemon2.attack}}</h3>
+            {% else %}
+                <img class="batalla-derecho-imagen" src="https://i.imgur.com/Qwck7sJ.png" width="150">
+                <h2>Buscar pokemon</h2>
+            {% endif %}
+        {% else %}
+            <img class="batalla-derecho-imagen" src="https://i.imgur.com/Qwck7sJ.png" width="150">
+            <h2>Buscar pokemon</h2>
+        {% endif %}
+    </div>
+</div>
+{% if seleccionados %}
+    <h3>El desarrollo de la batalla fue</h3>
+    <p class="batalla-desarrollo">{{desarrollo}}</p>
+{% endif %}
+
+{% endblock %}

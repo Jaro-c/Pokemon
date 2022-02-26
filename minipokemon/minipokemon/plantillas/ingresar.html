@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block titulo %} User Login {% endblock %}
+
+{% block contenido %} 
+
+<form action="/ingresar/" method="post">
+    {% if messages %}
+        {% for msj in messages %}
+            <p>{{msj}}</p>
+        {% endfor %}
+    {% endif %}
+    {% csrf_token %}
+    {{formulario.as_p}}
+    <input type="submit" value="Iniciar Sesion">
+    <input type="reset" value="Borrar">
+</form>
+
+{% endblock %}
+

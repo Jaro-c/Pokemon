@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Registrar Entrenador {% endblock %}
+
+{% block contenido %} 
+
+<form action="/registrar/" method="post">
+    {% if messages %}
+        {% for msj in messages %}
+            <p>{{msj}}</p>
+        {% endfor %}
+    {% endif %}
+    {% csrf_token %}
+    {{formulario.as_p}}
+    <input type="submit" value="Registrar">
+    <input type="reset" value="Borrar">
+</form>
+
+{% endblock %}

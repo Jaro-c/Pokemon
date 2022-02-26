@@ -1,0 +1,14 @@
+<header>
+    <nav class="menu">
+        <a href="/" class="nav-enlace"><i class="fas fa-home"></i> Home</a>
+        <a href="/pokedex/" class="nav-enlace"><i class="fas fa-dragon"></i> Pokedex</a>
+        <a href="/batalla/" class="nav-enlace"><i class="fab fa-battle-net"></i> Batalla</a>
+        {% if user.is_authenticated %}
+            <a class="nav-enlace"> Hola, {{user.username}}</a>
+            <a href="/salir/" class="nav-enlace"><i class="fas fa-headset"></i> Salir</a>
+        {% else %}
+            <a href="/registrar/" class="nav-enlace"><i class="fas fa-user-circle"></i> Registrar</a>
+            <a href="/ingresar/" class="nav-enlace"><i class="fas fa-headset"></i> Ingresar</a>
+        {% endif %}
+    </nav>
+</header>

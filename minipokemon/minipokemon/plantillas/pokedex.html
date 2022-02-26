@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Pokedex {% endblock %}
+
+{% block contenido %} 
+
+<div class="pokedex">
+    <div class="pokedex-izquierdo">
+        {% if user.is_authenticated %}
+            {% if not sprites %}
+                <img class="pokedex-izquierdo-imagen" src="https://i.imgur.com/Qwck7sJ.png" width="150">
+                <h2>Buscar pokemon</h2>
+            {% else %}
+                <img class="pokedex-izquierdo-imagen" src="{{sprites}}" width="150">
+                <h2>{{id}} - {{name}}</h2>
+                {% for i in type %}
+                    <img src="{{i}}" alt="" width="40px">
+                {% endfor %}
+            {% endif %}
+        {% else %}
+            <img class="pokedex-izquierdo-imagen" src="https://i.imgur.com/Qwck7sJ.png" width="150">
+            <h2>Buscar pokemon</h2>
+        {% endif %}
+    </div>
+    <div class="pokedex-derecho">
+        {% if user.is_authenticated %}
+            <div class="pokedex-derecho-stats">
+                <p><b>Hp: </b>{{hp}}</p>
+                <p><b>Attack: </b>{{attack}}</p>
+                <p><b>Defense: </b>{{defense}}</p>
+                <p><b>Special Attack: </b>{{sp_atk}}</p>
+                <p><b>Special Defense: </b>{{sp_def}}</p>
+                <p><b>Speed: </b>{{speed}}</p>
+                <p><b>Total: </b>{{total}}</p>
+            </div>
+            <div>
+                <form action="/pokedex/" method="post">
+                    {% csrf_token %}
+                    <input type="number" class="pokemon-derecho-input-id" name="pokemon-id" value="{{id}}">
+                    <input type="submit" value="Buscar" class="pokedex-derecho-button">
+                    {% if errores.errorID %}
+                        <p>{{errores.errorID}}</p>
+                    {% endif %}
+                </form>               
+            </div>
+        {% else %}
+            <div class="pokedex-derecho-stats">
+                <p>Debe <b>registrarse e ingresar</b> para poder buscar un Pokemon</p>
+            </div>
+        {% endif %}
+
+
+    </div>
+</div>
+
+{% endblock %}
